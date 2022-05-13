@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.AddContactTabPage = new System.Windows.Forms.TabPage();
             this.ContactFormHeaderLabel = new System.Windows.Forms.Label();
@@ -82,6 +83,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.ContactsHeaderLabel = new System.Windows.Forms.Label();
+            this.ContactsTimer = new System.Windows.Forms.Timer(this.components);
             this.MainTabControl.SuspendLayout();
             this.AddContactTabPage.SuspendLayout();
             this.ContactFormTable.SuspendLayout();
@@ -469,6 +471,7 @@
             this.DateContactFilterCheckBox.Size = new System.Drawing.Size(15, 14);
             this.DateContactFilterCheckBox.TabIndex = 6;
             this.DateContactFilterCheckBox.UseVisualStyleBackColor = true;
+            this.DateContactFilterCheckBox.Visible = false;
             this.DateContactFilterCheckBox.CheckedChanged += new System.EventHandler(this.DateContactFilterCheckBox_CheckedChanged);
             // 
             // ContactSearchInput
@@ -488,6 +491,7 @@
             this.DateContactFilterLabel.Size = new System.Drawing.Size(100, 15);
             this.DateContactFilterLabel.TabIndex = 4;
             this.DateContactFilterLabel.Text = "Filter by birthdate";
+            this.DateContactFilterLabel.Visible = false;
             this.DateContactFilterLabel.Click += new System.EventHandler(this.DateContactFilterLabel_Click);
             // 
             // DateContactFilterDtp
@@ -499,6 +503,7 @@
             this.DateContactFilterDtp.Size = new System.Drawing.Size(150, 23);
             this.DateContactFilterDtp.TabIndex = 3;
             this.DateContactFilterDtp.Value = new System.DateTime(2022, 4, 22, 0, 0, 0, 0);
+            this.DateContactFilterDtp.Visible = false;
             this.DateContactFilterDtp.ValueChanged += new System.EventHandler(this.DateContactFilterDtp_ValueChanged);
             // 
             // ContactsMainWrapperFlowLp
@@ -925,6 +930,10 @@
             this.ContactsHeaderLabel.TabIndex = 1;
             this.ContactsHeaderLabel.Text = "Contacts";
             // 
+            // ContactsTimer
+            // 
+            this.ContactsTimer.Tick += new System.EventHandler(this.ContactsTimer_Tick);
+            // 
             // MainWindowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1043,5 +1052,6 @@
         private CheckBox DateContactFilterCheckBox;
         private Label label14;
         private Label label10;
+        private System.Windows.Forms.Timer ContactsTimer;
     }
 }

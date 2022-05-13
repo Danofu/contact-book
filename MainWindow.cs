@@ -393,5 +393,12 @@ namespace ContactBook_PTDN_Project
         }
 
         private void DateContactFilterLabel_Click(object sender, EventArgs e) => DateContactFilterDtp.Focus();
+
+        private void ContactsTimer_Tick(object sender, EventArgs e)
+        {
+            _searchDateTicks = DateTime.Now.Ticks;
+            RerenderContacts();
+        }
+
     }
 }
