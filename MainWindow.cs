@@ -11,6 +11,7 @@ namespace ContactBook_PTDN_Project
 
         private string? _searchQuery = null;
         private long _searchDateTicks = DateTime.Now.Ticks;
+        private bool _isBirthdaysView = false;
 
         private void LoadContacts()
         {
@@ -42,7 +43,7 @@ namespace ContactBook_PTDN_Project
             while (result.Read())
             {
                 var birthdayTicks = (long)result[DatabaseManager._contactsColumnNameBirthdayTicks];
-                if (!HasBirthdayThisWeek(new DateTime(birthdayTicks)) && DateContactFilterCheckBox.Checked) { continue; }
+                if (!HasBirthdayThisWeek(new DateTime(birthdayTicks)) && _isBirthdaysView) { continue; }
 
                 _contacts.Add(new()
                 {
@@ -129,7 +130,6 @@ namespace ContactBook_PTDN_Project
         {
             LoadContacts();
             CreateContactComponents();
-            GC.Collect();
             RenderContacts();
         }
 
@@ -397,6 +397,13 @@ namespace ContactBook_PTDN_Project
         private void ContactsTimer_Tick(object sender, EventArgs e)
         {
             _searchDateTicks = DateTime.Now.Ticks;
+            RerenderContacts();
+        }
+
+        private void ToggleBirthdayContactsBtn_Click(object sender, EventArgs e)
+        {
+            ToggleBirthdayContactsBtn.Text = _isBirthdaysView ? "Show Birthdays" : "Show All Contacts";
+            _isBirthdaysView = !_isBirthdaysView;
             RerenderContacts();
         }
 

@@ -46,6 +46,7 @@
             this.SubmitContactFormButton = new System.Windows.Forms.Button();
             this.ContactFormDbMessageLabel = new System.Windows.Forms.Label();
             this.ContactsTabPage = new System.Windows.Forms.TabPage();
+            this.ToggleBirthdayContactsBtn = new System.Windows.Forms.Button();
             this.DateContactFilterCheckBox = new System.Windows.Forms.CheckBox();
             this.ContactSearchInput = new System.Windows.Forms.TextBox();
             this.DateContactFilterLabel = new System.Windows.Forms.Label();
@@ -446,6 +447,7 @@
             // 
             // ContactsTabPage
             // 
+            this.ContactsTabPage.Controls.Add(this.ToggleBirthdayContactsBtn);
             this.ContactsTabPage.Controls.Add(this.DateContactFilterCheckBox);
             this.ContactsTabPage.Controls.Add(this.ContactSearchInput);
             this.ContactsTabPage.Controls.Add(this.DateContactFilterLabel);
@@ -460,6 +462,16 @@
             this.ContactsTabPage.Text = "Contacts";
             this.ContactsTabPage.UseVisualStyleBackColor = true;
             this.ContactsTabPage.Enter += new System.EventHandler(this.ContactsTabPage_Enter);
+            // 
+            // ToggleBirthdayContactsBtn
+            // 
+            this.ToggleBirthdayContactsBtn.Location = new System.Drawing.Point(629, 55);
+            this.ToggleBirthdayContactsBtn.Name = "ToggleBirthdayContactsBtn";
+            this.ToggleBirthdayContactsBtn.Size = new System.Drawing.Size(112, 25);
+            this.ToggleBirthdayContactsBtn.TabIndex = 7;
+            this.ToggleBirthdayContactsBtn.Text = "Show Birthdays";
+            this.ToggleBirthdayContactsBtn.UseVisualStyleBackColor = true;
+            this.ToggleBirthdayContactsBtn.Click += new System.EventHandler(this.ToggleBirthdayContactsBtn_Click);
             // 
             // DateContactFilterCheckBox
             // 
@@ -1053,5 +1065,6 @@
         private Label label14;
         private Label label10;
         private System.Windows.Forms.Timer ContactsTimer;
+        private Button ToggleBirthdayContactsBtn;
     }
 }
